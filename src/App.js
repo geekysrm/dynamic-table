@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import FirstComponent from "./components/FirstComponent";
+import ColumnCreation from "./components/column-creation/ColumnCreation";
 import "./App.css";
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
         <Router>
           <div className="App">
             {/*<Navbar />*/}
-            <Route exact path="/" component={FirstComponent} />
+            <Route exact path="/" component={ColumnCreation} />
 
             {/*<Footer />*/}
           </div>
