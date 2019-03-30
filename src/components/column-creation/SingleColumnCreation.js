@@ -15,6 +15,7 @@ class SingleColumnCreation extends Component {
       let multiValues = multiSelectValues.trim().split(',');
         multiValues = multiValues.map(s => s.trim());
         console.log(multiValues);
+        // replace this.state below with multiValues & columnName with columnName replacing all space with _
         this.props.onAddColumnData(this.state);        
 
   }
