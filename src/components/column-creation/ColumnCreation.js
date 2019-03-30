@@ -70,6 +70,10 @@ class ColumnCreation extends Component {
         <button type="button" className="btn btn-success" onClick={this.handleSubmitClick}>
           Submit
         </button>
+
+        <button type="button" className="btn btn-success" onClick={() => this.props.history.push('/table-entry')}>
+          Go to Table entry
+        </button>
       </div>
     );
   }

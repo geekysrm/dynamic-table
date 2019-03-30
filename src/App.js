@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import ColumnCreation from "./components/column-creation/ColumnCreation";
+import TableEntry from "./components/table-entry/TableEntry";
+
 import "./App.css";
 
 class App extends Component {
@@ -14,7 +16,7 @@ class App extends Component {
           <div className="App">
             {/*<Navbar />*/}
             <Route exact path="/" component={ColumnCreation} />
-
+            <Route exact path="/table-entry" component={TableEntry} />
             {/*<Footer />*/}
           </div>
         </Router>
