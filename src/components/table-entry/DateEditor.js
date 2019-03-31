@@ -10,14 +10,14 @@ export default class DateEditor extends Component {
   }
   getValue = () => {
     // return { date: this.state.dateEditor };
-    let obj={};
-    obj[this.props.column.key]=this.state.dateEditor;
+    let obj = {};
+    obj[this.props.column.key] = this.state.dateEditor;
     return obj;
-  }
+  };
 
   getInputNode = () => {
     return ReactDOM.findDOMNode(this);
-  }
+  };
 
   handleChange = (event, { name, value }) => {
     console.log([name]);
@@ -26,7 +26,7 @@ export default class DateEditor extends Component {
   };
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <Form>
         <DateInput

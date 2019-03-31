@@ -21,7 +21,9 @@ const newPerson = () => {
     status:
       statusChance > 0.66
         ? "relationship"
-        : statusChance > 0.33 ? "complicated" : "single"
+        : statusChance > 0.33
+        ? "complicated"
+        : "single"
   };
 };
 
@@ -34,8 +36,8 @@ export function makeData(len = 5553) {
   });
 }
 
-
-export const Tips = () =>
+export const Tips = () => (
   <div style={{ textAlign: "center" }}>
     <em>Tip: Hold shift when sorting to multi-sort!</em>
-  </div>;
+  </div>
+);

@@ -7,11 +7,11 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case ADD_ROWS:
-      return { 
+      return {
         ...state,
         rowsData: action.payload
         // rowsData: [...state.rowsData, action.payload]
-    	};
+      };
     default:
       return state;
   }

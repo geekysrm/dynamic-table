@@ -5,14 +5,14 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-  console.log(action.payload)
+  console.log(action.payload);
   switch (action.type) {
     case ADD_COLUMNS:
-      return { 
+      return {
         ...state,
         columnsData: action.payload
         // columnsData: [...state.columnsData, action.payload]
-    	};
+      };
     default:
       return state;
   }

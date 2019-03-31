@@ -7,7 +7,6 @@ import ColumnCreation from "./components/column-creation/ColumnCreation";
 import TableEntry from "./components/table-entry/TableEntry";
 import TableView from "./components/table-view/TableView";
 
-
 import "./App.css";
 
 class App extends Component {

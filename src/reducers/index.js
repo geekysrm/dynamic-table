@@ -4,6 +4,6 @@ import columnReducer from "./columnReducer";
 import rowReducer from "./rowReducer";
 
 export default combineReducers({
-   columns: columnReducer,
-	 rows: rowReducer
+  columns: columnReducer,
+  rows: rowReducer
 });
