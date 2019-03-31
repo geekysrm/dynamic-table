@@ -6,6 +6,12 @@ class TableView extends React.Component {
 
 state = { rows:this.props.rows.rowsData };
 
+
+restructureTable = () => {
+
+  window.location.assign('/')
+}
+
 render() {
   
   const {rowsData} = this.props.rows;
@@ -21,13 +27,20 @@ render() {
     })
 
 
+
     return (
+      <>
       <ReactDataGrid
         columns={columns}
         rowGetter={i => this.state.rows[i]}
         rowsCount={20}
         enableCellSelect={true}
       />
+      <button type="button" className="btn btn-danger" onClick={this.restructureTable}>
+         Restructure table
+        </button>
+        <small>All your data will be deleted</small>
+      </>
     );
   }
 }
