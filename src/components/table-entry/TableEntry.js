@@ -13,18 +13,24 @@ const { DropDownEditor } = Editors;
 
 class TableEntry extends React.Component {
 
-  returnSingleObject = () => {
+  returnSingleObject = (j) => {
     let obj = {};
     this.props.columns.columnsData.map((columnData) => {
+      if(this.props.rows.rowsData.length===0 )
       obj[columnData.columnName]=""
+    else obj[columnData.columnName] = this.props.rows.rowsData[j][columnData.columnName]
+    // else console.log(this.props.rows.rowsData[j][columnData.columnName])
     })
     return obj;
   }
   // Make below thing pretty
-  state = { 
-    rows: [this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject()]
-  };
+  // state = { 
+  //   rows: [this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject(),this.returnSingleObject()]
+  // };
 
+state = { 
+    rows: [this.returnSingleObject(0),this.returnSingleObject(1),this.returnSingleObject(2),this.returnSingleObject(3),this.returnSingleObject(4),this.returnSingleObject(5),this.returnSingleObject(6),this.returnSingleObject(7),this.returnSingleObject(8),this.returnSingleObject(9),this.returnSingleObject(10),this.returnSingleObject(11),this.returnSingleObject(12),this.returnSingleObject(13),this.returnSingleObject(14),this.returnSingleObject(15),this.returnSingleObject(16),this.returnSingleObject(17),this.returnSingleObject(18),this.returnSingleObject(19)]
+  };
 
   onGridRowsUpdated = ({ fromRow, toRow, updated }) => {
     this.setState(state => {

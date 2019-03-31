@@ -2,7 +2,6 @@ import React from "react";
 import ReactDataGrid from "react-data-grid";
 import { connect } from "react-redux";
 
-
 class TableView extends React.Component {
 
 state = { rows:this.props.rows.rowsData };
@@ -26,7 +25,7 @@ render() {
       <ReactDataGrid
         columns={columns}
         rowGetter={i => this.state.rows[i]}
-        rowsCount={3}
+        rowsCount={20}
         enableCellSelect={true}
       />
     );
