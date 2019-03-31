@@ -31,7 +31,7 @@ export default class DateEditor extends Component {
       <input
         name="numberEditor"
         type="text"
-        placeholder="Click again"
+        placeholder="Enter number"
         value={this.state.numberEditor}
         onChange={this.handleChange}
       />
