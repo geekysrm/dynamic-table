@@ -116,7 +116,11 @@ class TableEntry extends React.Component {
           onGridRowsUpdated={this.onGridRowsUpdated}
           enableCellSelect={true}
         />
-        <button type="button" onClick={this.handleSubmitClick}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={this.handleSubmitClick}
+        >
           Submit data
         </button>
         <button
