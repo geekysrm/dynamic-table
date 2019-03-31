@@ -1,68 +1,70 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dynamic Table
 
-## Available Scripts
+A table which allows dynamic columns and data.
 
-In the project directory, you can run:
+### Live here: https://dynamic-table.netlify.com/
 
-### `npm start`
+## Technologies used
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [React.JS](https://reactjs.org/) -Frontend library used in the project.
+- [Redux](https://redux.js.org/) - Used in addition to React.JS
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- There are 3 modules: column creation module, table entry module and table view module
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      	**Column Creation Module** *- create columns here*
 
-### `npm run build`
+- This would be a **form** with 2 fields - **(i) column name and (ii) column type**
+- The column name is a text entry field and the column type is dropdown with 3 values - **date, number and multiselect**
+- If the user selects **multiselect**, there will be another text box that appears, where the user can enter the list of values that appears in the multiselect separated by comma’s - E.g. chennai, delhi, mumbai
+- The user can create multiple columns and click on **submit**
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      	**Table entry module** *- create rows here*
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- The columns created above will be displayed in a table interface with the column names above as headers
+- There will be 20 default rows to enter the values for the table(**navigation is set between the cells, on pressing of the right arrow move towards the next cell and so on**)
+- The **validations** for column will depend on the column type - E.g. date column, we can only pick date, number column only enter number and **multiselect** - can select only from the the list of values mentioned
+- The user can fill multiple rows and then click on submit
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+      	**Table View module** *- view the table here*
 
-### `npm run eject`
+- The submitted rows above can be viewed in a datatable.
+- Any new rows added above will be appended to this table.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Getting Started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Prerequisites
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+_Node.JS and npm must be installed. Download and install them from [here](https://nodejs.org)._
 
-## Learn More
+### Installing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Follow these steps to run this project in your local computer.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+$ git clone https://github.com/geekysrm/dynamic-table.git
+$ cd dynamic-table
+```
 
-### Code Splitting
+Now run :
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+$ npm i
+```
 
-### Analyzing the Bundle Size
+To run the app on port `3000`, run:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+$ npm run client
+```
 
-### Making a Progressive Web App
+## Authors
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- **Soumya Ranjan Mohanty** - [geekysrm](https://github.com/geekysrm)
 
-### Advanced Configuration
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License.

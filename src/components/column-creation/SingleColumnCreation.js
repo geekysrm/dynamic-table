@@ -13,21 +13,11 @@ class SingleColumnCreation extends Component {
     const { columnName, columnType, multiSelectValues } = this.state;
     console.log(this.state);
 
-    let multiValues = multiSelectValues.trim().split(",");
-    multiValues = multiValues.map(s => s.trim());
-    console.log(multiValues);
-    // replace this.state below with multiValues & columnName with columnName replacing all space with _
     const { added, ...stateWithoutAdded } = this.state;
-    console.log({ ...stateWithoutAdded, multiSelectValues: multiValues });
-    if (multiSelectValues) {
-      this.props.onAddColumnData({
-        ...stateWithoutAdded,
-        multiSelectValues: multiValues
-      });
-    } else
-      this.props.onAddColumnData({
-        ...stateWithoutAdded
-      });
+
+    this.props.onAddColumnData({
+      ...stateWithoutAdded
+    });
     this.setState({ added: true });
   };
 
@@ -93,7 +83,7 @@ class SingleColumnCreation extends Component {
             </div>
           )}
 
-          <div className="d-flex flex-row-reverse bd-highlight">
+          <div className="d-flex flex-row-reverse bd-highlight buttons-wrapper">
             <button
               type="button"
               onClick={this.handleRemoveColumn}

@@ -8,7 +8,8 @@ import "./ColumnCreation.css";
 class ColumnCreation extends Component {
   state = {
     columns: 1,
-    columnsData: []
+    columnsData: [],
+    submitted: false
   };
 
   handleAddColumnClick = () => {
@@ -41,6 +42,7 @@ class ColumnCreation extends Component {
   handleSubmitClick = () => {
     console.log("Final submit");
     console.log(this.state.columnsData);
+    this.setState({ submitted: true });
     this.props.addColumns(this.state.columnsData);
   };
 
@@ -92,13 +94,15 @@ class ColumnCreation extends Component {
         >
           Submit Columns
         </button>
-        <button
-          type="button"
-          className="btn btn-info ml-2"
-          onClick={() => this.props.history.push("/table-entry")}
-        >
-          Go to Table entry
-        </button>
+        {this.state.submitted && (
+          <button
+            type="button"
+            className="btn btn-info ml-2"
+            onClick={() => this.props.history.push("/table-entry")}
+          >
+            Go to Table entry
+          </button>
+        )}
       </div>
     );
   }
