@@ -5,6 +5,9 @@ import { Editors } from "react-data-grid-addons";
 import "semantic-ui-css/semantic.min.css";
 
 import DateEditor from "./DateEditor";
+// import { addColumns } from "../../actions/columnActions";
+import { addRows } from "../../actions/rowActions";
+
 
 const { DropDownEditor } = Editors;
 
@@ -35,6 +38,8 @@ class Example extends React.Component {
 
   handleClick = () => {
     console.log(this.state.rows)
+    this.props.addRows(this.state.rows)
+
   }
 
   render() {
@@ -88,5 +93,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {  }
+  {addRows}
 )(Example);

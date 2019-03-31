@@ -1,4 +1,4 @@
-// import { ADD_ROWS } from "../actions/types";
+import { ADD_ROWS } from "../actions/types";
 
 const initialState = {
   rowsData: []
@@ -6,11 +6,12 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    // case ADD_ROWS:
-    //   return { 
-    //     ...state,
-    //     rowsData: [...state.columnsData, action.payload]
-    // 	};
+    case ADD_ROWS:
+      return { 
+        ...state,
+        rowsData: action.payload
+        // rowsData: [...state.rowsData, action.payload]
+    	};
     default:
       return state;
   }
