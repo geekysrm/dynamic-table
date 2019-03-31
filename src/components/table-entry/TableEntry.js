@@ -5,6 +5,7 @@ import { Editors } from "react-data-grid-addons";
 import "semantic-ui-css/semantic.min.css";
 
 import DateEditor from "./DateEditor";
+import NumberEditor from "./NumberEditor"
 // import { addColumns } from "../../actions/columnActions";
 import { addRows } from "../../actions/rowActions";
 
@@ -73,7 +74,7 @@ state = {
         }
         if(columnData.columnType==="Number"){
             return (
-              { key: columnData.columnName.replace(" ",""), name: `${columnData.columnName} (${columnData.columnType})`, editable: true, }
+              { key: columnData.columnName.replace(" ",""), name: `${columnData.columnName} (${columnData.columnType})`, editable: true,editor:NumberEditor }
         )
         }
        if(columnData.columnType==="Date"){
