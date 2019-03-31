@@ -2,6 +2,8 @@ import React from "react";
 import ReactDataGrid from "react-data-grid";
 import { connect } from "react-redux";
 
+import "../table-entry/TableEntry.css";
+
 class TableView extends React.Component {
   state = { rows: this.props.rows.rowsData };
 
@@ -28,22 +30,28 @@ class TableView extends React.Component {
           rowGetter={i => this.state.rows[i]}
           rowsCount={20}
           enableCellSelect={true}
+          minHeight={800}
         />
-        <button
-          type="button"
-          className="btn btn-warning ml-2"
-          onClick={() => this.props.history.push("/table-entry")}
-        >
-          Go back to Table entry
-        </button>
-        <button
-          type="button"
-          className="btn btn-danger"
-          onClick={this.restructureTable}
-        >
-          Restructure table
-        </button>
-        <small>All your data will be deleted</small>
+        <div className="table-entry-button-wrapper">
+          <button
+            type="button"
+            className="btn btn-warning ml-2"
+            onClick={() => this.props.history.push("/table-entry")}
+          >
+            Go back to Table entry
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger ml-3"
+            onClick={this.restructureTable}
+          >
+            Restructure table
+          </button>
+        </div>
+        <br />
+        <p className="font-italic text-muted text-right">
+          All your data will be erased if you restructure table
+        </p>
       </>
     );
   }

@@ -8,6 +8,7 @@ import DateEditor from "./DateEditor";
 import NumberEditor from "./NumberEditor";
 // import { addColumns } from "../../actions/columnActions";
 import { addRows } from "../../actions/rowActions";
+import "./TableEntry.css";
 
 const { DropDownEditor } = Editors;
 
@@ -115,21 +116,24 @@ class TableEntry extends React.Component {
           rowsCount={20}
           onGridRowsUpdated={this.onGridRowsUpdated}
           enableCellSelect={true}
+          minHeight={800}
         />
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={this.handleSubmitClick}
-        >
-          Submit data
-        </button>
-        <button
-          type="button"
-          className="btn btn-success"
-          onClick={() => this.props.history.push("/table-view")}
-        >
-          View Table
-        </button>
+        <div className="table-entry-button-wrapper">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={this.handleSubmitClick}
+          >
+            Submit data
+          </button>
+          <button
+            type="button"
+            className="btn btn-success ml-3"
+            onClick={() => this.props.history.push("/table-view")}
+          >
+            View Table
+          </button>
+        </div>
       </>
     );
   }
