@@ -51,10 +51,16 @@ class Example extends React.Component {
           { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true,editor: <DropDownEditor options={options} /> }
         )
         }
-      else 
+        if(columnData.columnType==="Number"){
+            return (
+              { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true, }
+        )
+        }
+       if(columnData.columnType==="Date"){
         return (
         { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true, }
         )
+      }
     })
 
     return (
