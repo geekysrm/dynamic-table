@@ -2,6 +2,9 @@ import React from "react";
 import ReactDataGrid from "react-data-grid";
 import { connect } from "react-redux";
 import { Editors } from "react-data-grid-addons";
+import "semantic-ui-css/semantic.min.css";
+
+import DateEditor from "./DateEditor";
 
 const { DropDownEditor } = Editors;
 
@@ -58,7 +61,7 @@ class Example extends React.Component {
         }
        if(columnData.columnType==="Date"){
         return (
-        { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true, }
+        { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true,editor: DateEditor  }
         )
       }
     })
