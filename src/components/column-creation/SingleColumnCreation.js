@@ -4,7 +4,8 @@ class SingleColumnCreation extends Component {
   state = {
     columnName: "",
     columnType: "Date",
-    multiSelectValues: ""
+    multiSelectValues: "",
+    added: false
   };
   // TODO: Add validation on inputs
   handleSubmit = e => {
@@ -16,7 +17,18 @@ class SingleColumnCreation extends Component {
     multiValues = multiValues.map(s => s.trim());
     console.log(multiValues);
     // replace this.state below with multiValues & columnName with columnName replacing all space with _
-    this.props.onAddColumnData(this.state);
+    const { added, ...stateWithoutAdded } = this.state;
+    console.log({ ...stateWithoutAdded, multiSelectValues: multiValues });
+    if (multiSelectValues) {
+      this.props.onAddColumnData({
+        ...stateWithoutAdded,
+        multiSelectValues: multiValues
+      });
+    } else
+      this.props.onAddColumnData({
+        ...stateWithoutAdded
+      });
+    this.setState({ added: true });
   };
 
   handleRemoveColumn = () => {
@@ -73,7 +85,7 @@ class SingleColumnCreation extends Component {
                   type="text"
                   name="multiSelectValues"
                   value={this.multiSelectValues}
-                  className="form-control"
+                  className="form-control w-50"
                   placeholder="Enter list of values separated by commas"
                   onChange={this.onChange}
                 />
@@ -89,8 +101,12 @@ class SingleColumnCreation extends Component {
             >
               Remove this column
             </button>
-            <button type="submit" className="btn btn-primary">
-              Add this column
+            <button
+              type="submit"
+              disabled={this.state.added}
+              className="btn btn-primary"
+            >
+              {this.state.added ? "Added" : "Add this column"}
             </button>
           </div>
         </form>

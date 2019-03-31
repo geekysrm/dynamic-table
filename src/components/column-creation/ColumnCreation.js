@@ -11,11 +11,6 @@ class ColumnCreation extends Component {
     columnsData: []
   };
 
-  /*
-    [{columnName: "x", columnType: "Number"}],
-    [{columnName: "y", columnType: "Date"}]
-  */
-
   handleAddColumnClick = () => {
     this.setState((prevState, props) => {
       return { columns: prevState.columns + 1 };
@@ -86,7 +81,7 @@ class ColumnCreation extends Component {
           +
         </button>
         <br />
-        <p class="font-italic text-muted">
+        <p className="font-italic text-muted">
           Don't forget to click Add this column button before clicking this!
         </p>
         <br />
