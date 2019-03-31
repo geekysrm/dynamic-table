@@ -5,6 +5,8 @@ import store from "./store";
 
 import ColumnCreation from "./components/column-creation/ColumnCreation";
 import TableEntry from "./components/table-entry/TableEntry";
+import TableView from "./components/table-view/TableView";
+
 
 import "./App.css";
 
@@ -17,6 +19,8 @@ class App extends Component {
             {/*<Navbar />*/}
             <Route exact path="/" component={ColumnCreation} />
             <Route exact path="/table-entry" component={TableEntry} />
+            <Route exact path="/table-view" component={TableView} />
+
             {/*<Footer />*/}
           </div>
         </Router>

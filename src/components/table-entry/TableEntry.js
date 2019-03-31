@@ -11,7 +11,7 @@ import { addRows } from "../../actions/rowActions";
 
 const { DropDownEditor } = Editors;
 
-class Example extends React.Component {
+class TableEntry extends React.Component {
 
   returnSingleObject = () => {
     let obj = {};
@@ -36,7 +36,13 @@ class Example extends React.Component {
     });
   };
 
-  handleClick = () => {
+  handleSubmitClick = () => {
+    console.log(this.state.rows)
+    this.props.addRows(this.state.rows)
+
+  }
+
+  handleViewClick = () => {
     console.log(this.state.rows)
     this.props.addRows(this.state.rows)
 
@@ -56,17 +62,17 @@ class Example extends React.Component {
               )
           })
           return (
-          { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true,editor: <DropDownEditor options={options} /> }
+          { key: columnData.columnName.replace(" ",""), name: `${columnData.columnName} (${columnData.columnType})`, editable: true,editor: <DropDownEditor options={options} /> }
         )
         }
         if(columnData.columnType==="Number"){
             return (
-              { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true, }
+              { key: columnData.columnName.replace(" ",""), name: `${columnData.columnName} (${columnData.columnType})`, editable: true, }
         )
         }
        if(columnData.columnType==="Date"){
         return (
-        { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true,editor: DateEditor  }
+        { key: columnData.columnName.replace(" ",""), name: `${columnData.columnName} (${columnData.columnType})`, editable: true,editor: DateEditor  }
         )
       }
     })
@@ -80,7 +86,10 @@ class Example extends React.Component {
         onGridRowsUpdated={this.onGridRowsUpdated}
         enableCellSelect={true}
       />
-     <button type="button" onClick={this.handleClick}>Submit data</button>
+     <button type="button" onClick={this.handleSubmitClick}>Submit data</button>
+     <button type="button" className="btn btn-success" onClick={() => this.props.history.push('/table-view')}>
+         View Table
+        </button>
       </>
     );
   }
@@ -94,4 +103,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   {addRows}
-)(Example);
+)(TableEntry);
