@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDataGrid from "react-data-grid";
 import { connect } from "react-redux";
+import { Editors } from "react-data-grid-addons";
+
+const { DropDownEditor } = Editors;
 
 class Example extends React.Component {
 
@@ -35,8 +38,22 @@ class Example extends React.Component {
 
     const {columnsData}  = this.props.columns;
     const columns = columnsData.map((columnData,index) => {
-      return (
-        { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true }
+      if(columnData.columnType==="Multiselect")
+        {
+          const options=columnData.multiSelectValues.split(',').map((option) => {
+            return (
+          
+                { id: option, value: option }
+
+              )
+          })
+          return (
+          { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true,editor: <DropDownEditor options={options} /> }
+        )
+        }
+      else 
+        return (
+        { key: columnData.columnName.replace(" ",""), name: columnData.columnName, editable: true, }
         )
     })
 
