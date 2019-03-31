@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import SingleColumnCreation from "./SingleColumnCreation";
 import { addColumns } from "../../actions/columnActions";
+import "./ColumnCreation.css";
 
 class ColumnCreation extends Component {
   state = {
@@ -67,7 +68,15 @@ class ColumnCreation extends Component {
   render() {
     console.log(this.state);
     return (
-      <div>
+      <div className="jumbotron column-creation-wrapper">
+        <div>
+          <h1 className="display-4 text-center">Create columns</h1>
+          <p className="lead text-center">
+            Add your columns by specifying their names and types
+          </p>
+          <hr className="my-4" />
+        </div>
+
         {this.renderColumnForms()}
         <button
           type="button"
@@ -77,17 +86,20 @@ class ColumnCreation extends Component {
           +
         </button>
         <br />
+        <p class="font-italic text-muted">
+          Don't forget to click Add this column button before clicking this!
+        </p>
+        <br />
         <button
           type="button"
           className="btn btn-success"
           onClick={this.handleSubmitClick}
         >
-          Submit
+          Submit Columns
         </button>
-
         <button
           type="button"
-          className="btn btn-success"
+          className="btn btn-info ml-2"
           onClick={() => this.props.history.push("/table-entry")}
         >
           Go to Table entry

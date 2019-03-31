@@ -41,7 +41,7 @@ class SingleColumnCreation extends Component {
                 type="text"
                 name="columnName"
                 value={this.columnName}
-                className="form-control"
+                className="form-control w-50"
                 placeholder="Enter column name"
                 onChange={this.onChange}
               />
@@ -57,7 +57,7 @@ class SingleColumnCreation extends Component {
                 value={this.columnType}
                 onChange={this.onChange}
                 id="inputState"
-                className="form-control"
+                className="form-control w-50"
               >
                 <option>Date</option>
                 <option>Number</option>
@@ -80,16 +80,19 @@ class SingleColumnCreation extends Component {
               </div>
             </div>
           )}
-          <button type="submit" className="btn btn-primary">
-            Add this column
-          </button>
-          <button
-            type="button"
-            onClick={this.handleRemoveColumn}
-            className="btn btn-danger"
-          >
-            Remove this column
-          </button>
+
+          <div className="d-flex flex-row-reverse bd-highlight">
+            <button
+              type="button"
+              onClick={this.handleRemoveColumn}
+              className="btn btn-danger ml-2"
+            >
+              Remove this column
+            </button>
+            <button type="submit" className="btn btn-primary">
+              Add this column
+            </button>
+          </div>
         </form>
       </div>
     );
